@@ -68,7 +68,7 @@ def validate_response(response):
 
 
 def main():
-    st.set_page_config(page_title="APFlix", page_icon="🎬")
+    st.set_page_config(page_title="APFlix", page_icon=":clapper:")
     client = OpenAI(api_key=get_secret('OPENAI_API_KEY'))
     if user_description := st.text_area("Enter User Input"):
         response = client.chat.completions.create(
