@@ -1,4 +1,5 @@
 import json
+import re
 import requests
 import streamlit as st
 from openai import OpenAI
@@ -16,7 +17,7 @@ MOVIES = [
     "The Matrix",
     "Forrest Gump",
 ]
-SYSTEM_MESSEGE = f"""You are a movie reccommendation bot, You should output JSON with the fields: "title", "reason".
+SYSTEM_MESSEGE = f"""You are a movie recommendation bot, You should output JSON with the fields: "title", "reason".
 The movie you recommend should be from the following list: {*MOVIES,}"""
 
 
@@ -35,6 +36,20 @@ def get_movie_data(title):
     if results := response.get("results", []):
         return results[0]
 
+def get_movie_data_from_url(imdb_url):
+    if not (match := re.fullmatch(r"https://www\.imdb\.com/title/(tt\d{7})/", imdb_url)):
+        st.error("The URL is not a valid IMDb URL")
+        return
+    
+    imdb_id = match.group(1)
+    try:
+        response = requests.get(f"https://api.themoviedb.org/3/find/{imdb_id}?api_key={get_secret('TMDB_API_KEY')}&external_source=imdb_id"
+            ).json()
+    except requests.exceptions.RequestException as e:
+        return
+
+    if results := response.get("movie_results", []):
+        return results[0]
 
 def validate_response(response):
     try:
@@ -70,6 +85,7 @@ def validate_response(response):
 def main():
     st.set_page_config(page_title="APFlix", page_icon=":clapper:")
     client = OpenAI(api_key=get_secret('OPENAI_API_KEY'))
+    
     if user_description := st.text_area("Enter User Input"):
         response = client.chat.completions.create(
             model="gpt-3.5-turbo-0125",
