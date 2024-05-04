@@ -1,0 +1,19 @@
+{
+    "adult": false,
+    "backdrop_path": "/79bJL9ydAMYVltuNTt4VhxORqIz.jpg",
+    "genre_ids": [
+        12,
+        878
+    ],
+    "id": 329,
+    "original_language": "en",
+    "original_title": "Jurassic Park",
+    "overview": "A wealthy entrepreneur secretly creates a theme park featuring living dinosaurs drawn from prehistoric DNA. Before opening day, he invites a team of experts and his two eager grandchildren to experience the park and help calm anxious investors. However, the park is anything but amusing as the security systems go off-line and the dinosaurs escape.",
+    "popularity": 44.647,
+    "poster_path": "/b1xCNnyrPebIc7EWNZIa6jhb1Ww.jpg",
+    "release_date": "1993-06-11",
+    "title": "Jurassic Park",
+    "video": false,
+    "vote_average": 7.945,
+    "vote_count": 15755
+}
