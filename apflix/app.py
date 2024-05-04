@@ -16,7 +16,7 @@ MOVIES = [
     "The Matrix",
     "Forrest Gump",
 ]
-SYSTEM_MESSEGE = f"""You are a movie reccommendation bot, You should output JSON with the fields: "title", "reason".
+SYSTEM_MESSEGE = f"""You are a movie recommendation bot, You should output JSON with the fields: "title", "reason".
 The movie you recommend should be from the following list: {*MOVIES,}"""
 
 
@@ -115,4 +115,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    print(SYSTEM_MESSEGE)
