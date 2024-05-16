@@ -1,4 +1,4 @@
-# APFlix
+# Movie Recommendation Bot
 ## Local Installation
 To install it locally and run it, run the following commands:
 ```bash
