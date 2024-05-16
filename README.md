@@ -5,7 +5,7 @@ To install it locally and run it, run the following commands:
 git clone https://github.com/irad100/movie-recommendation.git
 ```
 ```bash
-cd apflix
+cd movie-recommendation
 ```
 ```bash
 pip install .
